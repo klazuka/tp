@@ -2,6 +2,7 @@
 #define D_A_TAG_KMSG_H
 
 #include "f_op/f_op_actor_mng.h"
+#include "d/msg/d_msg_flow.h"
 
 struct daTag_KMsg_c : public fopAc_ac_c {
 public:
@@ -11,6 +12,11 @@ public:
     /* 8048E8B8 */ bool Draw();
     /* 8048E8C0 */ void isDelete();
     /* 8048EA30 */ ~daTag_KMsg_c();
+
+    /* 0x568 */ request_of_phase_process_class mPhase;
+    /* 0x570 */ dMsgFlow_c mMsgFlow;
+    /* 0x5C2 */ u8 field_0x5c2;
+    /* Size: 0x5CC */
 
     void stabMasterSword() { field_0x5c2 = 1; }
     
@@ -26,9 +32,6 @@ public:
 
         return type;
     }
-
-    /* 0x568 */ u8 field_0x568[0x5C2 - 0x568];
-    /* 0x5C2 */ u8 field_0x5c2;
 };
 
 #endif /* D_A_TAG_KMSG_H */

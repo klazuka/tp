@@ -3,7 +3,7 @@
 // Translation Unit: d_a_tag_kmsg
 //
 
-// #include "rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg.h"
+#include "rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg.h"
 #include "dolphin/types.h"
 #include "dol2asm.h"
 
@@ -11,31 +11,8 @@
 // Types:
 //
 
-struct request_of_phase_process_class {};
-
-struct fopAc_ac_c {
-    /* 80018B64 */ fopAc_ac_c();
-    /* 80018C8C */ ~fopAc_ac_c();
-};
-
-struct daTag_KMsg_c {
-    /* 8048DE78 */ void create();
-    /* 8048DFDC */ void Delete();
-    /* 8048E010 */ void Execute();
-    /* 8048E8B8 */ bool Draw();
-    /* 8048E8C0 */ void isDelete();
-    /* 8048EA30 */ ~daTag_KMsg_c();
-};
-
 struct dSv_info_c {
     /* 80035360 */ void isSwitch(int, int) const;
-};
-
-struct dMsgFlow_c {
-    /* 80249F00 */ dMsgFlow_c();
-    /* 80249F48 */ ~dMsgFlow_c();
-    /* 80249F90 */ void init(fopAc_ac_c*, int, int, fopAc_ac_c**);
-    /* 8024A2D8 */ void doFlow(fopAc_ac_c*, fopAc_ac_c**, int);
 };
 
 struct dEvt_control_c {
@@ -51,31 +28,10 @@ struct dEvent_manager_c {
     /* 8004817C */ void cutEnd(int);
 };
 
-struct Vec {};
-
-struct cXyz {
-    /* 80266AE4 */ void operator+(Vec const&) const;
-    /* 80266B34 */ void operator-(Vec const&) const;
-    /* 80266B84 */ void operator*(f32) const;
-    /* 80266CE4 */ void norm() const;
-};
-
-struct dBgS_LinChk {
-    /* 80077C68 */ dBgS_LinChk();
-    /* 80077CDC */ ~dBgS_LinChk();
-    /* 80077D64 */ void Set(cXyz const*, cXyz const*, fopAc_ac_c const*);
-};
-
 struct cSAngle {
     /* 80270F98 */ cSAngle(s16);
     /* 802710F8 */ void Sin() const;
     /* 80271120 */ void Cos() const;
-};
-
-struct cBgS_LinChk {};
-
-struct cBgS {
-    /* 800743B4 */ void LineCross(cBgS_LinChk*);
 };
 
 //
@@ -136,9 +92,6 @@ extern "C" void Cos__7cSAngleCFv();
 extern "C" void __dl__FPv();
 extern "C" void _savegpr_25();
 extern "C" void _restgpr_25();
-extern "C" void strlen();
-extern "C" extern void* g_fopAc_Method[8];
-extern "C" extern void* g_fpcLf_Method[5 + 1 /* padding */];
 extern "C" extern u8 g_dComIfG_gameInfo[122384];
 extern "C" extern u8 mStayNo__20dStage_roomControl_c[4];
 
