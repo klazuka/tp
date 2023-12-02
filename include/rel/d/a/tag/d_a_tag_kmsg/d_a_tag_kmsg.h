@@ -3,6 +3,7 @@
 
 #include "f_op/f_op_actor_mng.h"
 #include "d/msg/d_msg_flow.h"
+#include "SSystem/SComponent/c_phase.h"
 
 struct daTag_KMsg_c : public fopAc_ac_c {
 public:
@@ -10,7 +11,7 @@ public:
     /* 8048DFDC */ void Delete();
     /* 8048E010 */ void Execute();
     /* 8048E8B8 */ bool Draw();
-    /* 8048E8C0 */ void isDelete();
+    /* 8048E8C0 */ BOOL isDelete();
     /* 8048EA30 */ ~daTag_KMsg_c();
 
     /* 0x568 */ request_of_phase_process_class mPhase;
@@ -19,7 +20,10 @@ public:
     /* Size: 0x5CC */
 
     void stabMasterSword() { field_0x5c2 = 1; }
-    
+
+    // TODO: [keith] I'm not sure about
+    u8 getBitSW() { return orig.angle.x & 0xff; }
+
     int getType() {
         int param = fopAcM_GetParam(this) >> 0x18;
         int type;

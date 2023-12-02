@@ -4,35 +4,9 @@
 //
 
 #include "rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg.h"
+#include "d/a/d_a_npc.h"
 #include "dolphin/types.h"
 #include "dol2asm.h"
-
-//
-// Types:
-//
-
-struct dSv_info_c {
-    /* 80035360 */ void isSwitch(int, int) const;
-};
-
-struct dEvt_control_c {
-    /* 80042468 */ void reset();
-    /* 80042518 */ void reset(void*);
-};
-
-struct dEvent_manager_c {
-    /* 80046800 */ void setObjectArchive(char*);
-    /* 80047758 */ void getEventIdx(fopAc_ac_c*, char const*, u8);
-    /* 80047A78 */ void endCheck(s16);
-    /* 80047B1C */ void getMyStaffId(char const*, fopAc_ac_c*, int);
-    /* 8004817C */ void cutEnd(int);
-};
-
-struct cSAngle {
-    /* 80270F98 */ cSAngle(s16);
-    /* 802710F8 */ void Sin() const;
-    /* 80271120 */ void Cos() const;
-};
 
 //
 // Forward References:
@@ -42,7 +16,7 @@ extern "C" void create__12daTag_KMsg_cFv();
 extern "C" void Delete__12daTag_KMsg_cFv();
 extern "C" void Execute__12daTag_KMsg_cFv();
 extern "C" bool Draw__12daTag_KMsg_cFv();
-extern "C" void isDelete__12daTag_KMsg_cFv();
+extern "C" bool isDelete__12daTag_KMsg_cFv();
 extern "C" static void daTag_KMsg_Create__FPv();
 extern "C" static void daTag_KMsg_Delete__FPv();
 extern "C" static void daTag_KMsg_Execute__FPv();
@@ -92,8 +66,6 @@ extern "C" void Cos__7cSAngleCFv();
 extern "C" void __dl__FPv();
 extern "C" void _savegpr_25();
 extern "C" void _restgpr_25();
-extern "C" extern u8 g_dComIfG_gameInfo[122384];
-extern "C" extern u8 mStayNo__20dStage_roomControl_c[4];
 
 //
 // Declarations:
@@ -245,14 +217,24 @@ bool daTag_KMsg_c::Draw() {
 }
 
 /* 8048E8C0-8048E9A8 000AC0 00E8+00 2/2 0/0 0/0 .text            isDelete__12daTag_KMsg_cFv */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm void daTag_KMsg_c::isDelete() {
-    nofralloc
-#include "asm/rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg/isDelete__12daTag_KMsg_cFv.s"
+BOOL daTag_KMsg_c::isDelete() {
+    switch (getType()) {
+    case 0:
+        return FALSE;
+    case 1:
+        return !daNpcT_chkEvtBit(0x40);  // TODO [keith] is there a constant for 0x40?
+    case 2:
+        return FALSE;
+    case 3:
+        return getBitSW() != 0xFF && dComIfGs_isSwitch(getBitSW(), fopAcM_GetRoomNo(this));
+    case 4:
+        return FALSE;
+    case 5:
+        return FALSE;
+    }
+
+    return FALSE;
 }
-#pragma pop
 
 /* 8048E9A8-8048E9C8 000BA8 0020+00 1/0 0/0 0/0 .text            daTag_KMsg_Create__FPv */
 static void daTag_KMsg_Create(void* i_this) {
