@@ -6,22 +6,26 @@
 #include "SSystem/SComponent/c_phase.h"
 
 struct daTag_KMsg_c : public fopAc_ac_c {
+private:
+    /* 0x568 */ request_of_phase_process_class mPhase;
+    /* 0x570 */ dMsgFlow_c mMsgFlow;
+    /* 0x5BC */ s32 field_0x5bc;
+    /* 0x5C0 */ s16 field_0x5c0;
+    /* 0x5C2 */ u8 field_0x5c2;
+    /* 0x5C3 */ u8 padding[5]; // maybe
+    /* 0x5C8 */ // vtable
+    /* Size: 0x5CC */
+
 public:
     /* 8048DE78 */ void create();
     /* 8048DFDC */ void Delete();
     /* 8048E010 */ void Execute();
     /* 8048E8B8 */ bool Draw();
     /* 8048E8C0 */ BOOL isDelete();
-    /* 8048EA30 */ ~daTag_KMsg_c();
-
-    /* 0x568 */ request_of_phase_process_class mPhase;
-    /* 0x570 */ dMsgFlow_c mMsgFlow;
-    /* 0x5C2 */ u8 field_0x5c2;
-    /* Size: 0x5CC */
+    /* 8048EA30 */ virtual ~daTag_KMsg_c();
 
     void stabMasterSword() { field_0x5c2 = 1; }
 
-    // TODO: [keith] I'm not sure about
     u8 getBitSW() { return orig.angle.x & 0xff; }
 
     int getType() {

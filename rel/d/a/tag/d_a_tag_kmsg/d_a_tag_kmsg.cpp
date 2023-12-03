@@ -262,13 +262,10 @@ static bool daTag_KMsg_IsDelete(void* param_0) {
 }
 
 /* 8048EA30-8048EAD4 000C30 00A4+00 1/0 0/0 0/0 .text            __dt__12daTag_KMsg_cFv */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm daTag_KMsg_c::~daTag_KMsg_c() {
-    nofralloc
-#include "asm/rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg/__dt__12daTag_KMsg_cFv.s"
+daTag_KMsg_c::~daTag_KMsg_c() {
+    if (getType() == 3) {
+        dComIfG_resDelete(&this->mPhase, "Lv6Gate");
+    }
 }
-#pragma pop
 
 /* 8048EAFC-8048EAFC 000020 0000+00 0/0 0/0 0/0 .rodata          @stringBase0 */
