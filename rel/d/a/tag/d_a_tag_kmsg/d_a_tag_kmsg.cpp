@@ -144,14 +144,10 @@ asm void daTag_KMsg_c::create() {
 #pragma pop
 
 /* 8048DFDC-8048E010 0001DC 0034+00 1/1 0/0 0/0 .text            Delete__12daTag_KMsg_cFv */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-asm void daTag_KMsg_c::Delete() {
-    nofralloc
-#include "asm/rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg/Delete__12daTag_KMsg_cFv.s"
+int daTag_KMsg_c::Delete() {
+    this->~daTag_KMsg_c();
+    return 1;
 }
-#pragma pop
 
 /* ############################################################################################## */
 /* 8048EAE0-8048EAE4 000004 0004+00 0/1 0/0 0/0 .rodata          @4206 */

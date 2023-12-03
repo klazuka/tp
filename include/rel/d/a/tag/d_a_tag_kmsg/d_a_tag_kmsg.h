@@ -18,7 +18,7 @@ private:
 
 public:
     /* 8048DE78 */ void create();
-    /* 8048DFDC */ void Delete();
+    /* 8048DFDC */ int Delete();
     /* 8048E010 */ void Execute();
     /* 8048E8B8 */ bool Draw();
     /* 8048E8C0 */ BOOL isDelete();
