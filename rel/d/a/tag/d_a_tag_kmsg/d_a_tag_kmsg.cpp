@@ -242,34 +242,19 @@ static void daTag_KMsg_Create(void* i_this) {
 }
 
 /* 8048E9C8-8048E9E8 000BC8 0020+00 1/0 0/0 0/0 .text            daTag_KMsg_Delete__FPv */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-static asm void daTag_KMsg_Delete(void* param_0) {
-    nofralloc
-#include "asm/rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg/daTag_KMsg_Delete__FPv.s"
+static void daTag_KMsg_Delete(void* i_this) {
+    static_cast<daTag_KMsg_c*>(i_this)->Delete();
 }
-#pragma pop
 
 /* 8048E9E8-8048EA08 000BE8 0020+00 1/0 0/0 0/0 .text            daTag_KMsg_Execute__FPv */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-static asm void daTag_KMsg_Execute(void* param_0) {
-    nofralloc
-#include "asm/rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg/daTag_KMsg_Execute__FPv.s"
+static void daTag_KMsg_Execute(void* i_this) {
+    static_cast<daTag_KMsg_c*>(i_this)->Execute();
 }
-#pragma pop
 
 /* 8048EA08-8048EA28 000C08 0020+00 1/0 0/0 0/0 .text            daTag_KMsg_Draw__FPv */
-#pragma push
-#pragma optimization_level 0
-#pragma optimizewithasm off
-static asm void daTag_KMsg_Draw(void* param_0) {
-    nofralloc
-#include "asm/rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg/daTag_KMsg_Draw__FPv.s"
+static void daTag_KMsg_Draw(void* i_this) {
+    static_cast<daTag_KMsg_c*>(i_this)->Draw();
 }
-#pragma pop
 
 /* 8048EA28-8048EA30 000C28 0008+00 1/0 0/0 0/0 .text            daTag_KMsg_IsDelete__FPv */
 static bool daTag_KMsg_IsDelete(void* param_0) {
