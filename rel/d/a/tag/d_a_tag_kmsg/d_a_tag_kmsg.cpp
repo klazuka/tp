@@ -3,6 +3,7 @@
 // Translation Unit: d_a_tag_kmsg
 //
 
+#include "JSystem/JKernel/JKRHeap.h"
 #include "rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg.h"
 #include "d/a/d_a_npc.h"
 #include "dolphin/types.h"
@@ -134,10 +135,35 @@ SECTION_DATA extern void* __vt__12daTag_KMsg_c[3] = {
 };
 
 /* 8048DE78-8048DFDC 000078 0164+00 1/1 0/0 0/0 .text            create__12daTag_KMsg_cFv */
+//int daTag_KMsg_c::create() {
+//    mAttentionInfo.mPosition = current.pos;
+//    mEyePos = mAttentionInfo.mPosition;
+//
+//    fopAcM_SetupActor(this, daTag_KMsg_c);
+//
+//    if (getType() == 3) {
+//        int phase = dComIfG_resLoad(&mPhase, "Lv6Gate");
+//        if (phase != cPhs_COMPLEATE_e) {
+//            return phase;
+//        }
+//    }
+//
+//    if (getType() == 2 || getType() == 5) {
+//        mScale.y *= 10.0f;
+//    }
+//    mFlowNo = getFlowNodeNo();
+//    field_0x5c0 = -1;
+//
+//    if (isDelete()) {
+//        return cPhs_ERROR_e;
+//    } else {
+//        return cPhs_COMPLEATE_e;
+//    }
+//}
 #pragma push
 #pragma optimization_level 0
 #pragma optimizewithasm off
-asm void daTag_KMsg_c::create() {
+asm int daTag_KMsg_c::create() {
     nofralloc
 #include "asm/rel/d/a/tag/d_a_tag_kmsg/d_a_tag_kmsg/create__12daTag_KMsg_cFv.s"
 }
